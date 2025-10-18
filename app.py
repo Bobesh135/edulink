@@ -76,123 +76,80 @@ html_sablona = """
         .main-content h1 { font-size: 5em; font-weight: 800; margin: 0; line-height: 1; }
         .main-content p { font-size: 1.6em; font-weight: 400; margin: 10px 0 0 5px; }
         
-        /* === NOVÁ SEKCE APLIKACE === */
+        /* === PŘEPRACOVANÁ SEKCE APLIKACE === */
         .app-section {
             padding: 60px 20px;
             max-width: 1100px;
             margin: 0 auto;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
+        .main-header {
+            font-size: 2.2em;
+            font-weight: 800;
+            margin-bottom: 5px;
         }
-        .section-header h2 {
-            font-size: 2.5em;
-            color: #333;
-            margin: 0;
-        }
-        .section-header p {
-            font-size: 1.2em;
-            color: #777;
-            margin-top: 5px;
-        }
-        .btn-red {
-            background-color: #E57373;
-            color: white;
-            padding: 10px 25px;
-            border: none;
-            border-radius: 8px;
-            font-family: 'K2D', sans-serif;
-            font-size: 1em;
-            cursor: pointer;
-            margin-top: 15px;
+        .sub-header {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 50px;
         }
         
-        .widgets-grid {
+        .widgets-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            gap: 40px;
+            align-items: start; /* Zarovná položky nahoru */
+            margin-bottom: 60px;
         }
         
-        .widget-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        .widget-card h3 {
+        .widget-item h3 {
+            font-size: 1.8em;
             margin-top: 0;
-            font-size: 1.5em;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
-        .widget-card .fa-solid { color: #555; }
-        
-        select, input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #E0E0E0;
-            border-radius: 8px;
-            font-family: 'K2D', sans-serif;
-            font-size: 1em;
-            margin-top: 10px;
-        }
-        
-        .grades-section { text-align: center; }
-        
-        .grades-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border-radius: 15px;
-            overflow: hidden; /* Aby se stín a radius aplikoval na celou tabulku */
-        }
-        .grades-table th, .grades-table td {
-            padding: 15px;
-            text-align: center;
-        }
-        .grades-table thead {
-            background-color: #f9f9f9;
-            font-size: 1.1em;
-        }
-        .grades-table tbody tr:nth-child(even) { background-color: #fcfcfc; }
-        .grades-table td:first-child {
-            text-align: left;
-            font-weight: 700;
+        .widget-item h3 .fa-chevron-down { font-size: 0.6em; }
+        .widget-item p { color: #555; line-height: 1.6; }
+
+        .custom-select {
             display: flex;
             align-items: center;
-            gap: 15px;
-        }
-        
-        .grade-box {
-            display: inline-block;
-            padding: 8px 15px;
-            border-radius: 8px;
-            color: white;
-            font-weight: 700;
-        }
-        .grade-5 { background-color: #EF5350; } /* Červená */
-        .grade-3 { background-color: #FFEE58; color: #333; } /* Žlutá */
-        .grade-1 { background-color: #66BB6A; } /* Zelená */
-        .grade-2 { background-color: #9CCC65; } /* Světle zelená */
-        
-        .btn-green {
-            background-color: #9CCC65;
-            color: white;
-            padding: 15px 40px;
-            border: none;
+            padding: 15px 20px;
             border-radius: 12px;
-            font-family: 'K2D', sans-serif;
             font-size: 1.2em;
             font-weight: 700;
             cursor: pointer;
-            margin-top: 40px;
         }
+        .custom-select .fa-solid { font-size: 1.2em; margin-right: 15px; }
+        .custom-select .placeholder { color: #999; margin-left: 10px; }
+        .custom-select .arrow { margin-left: auto; }
+
+        .blue-select {
+            background-color: white;
+            border: 3px solid #002B55;
+            color: #002B55;
+        }
+        .blue-select .fa-book { color: #0077ff; }
+
+        .red-select {
+            background-color: white;
+            border: 3px solid #D32F2F;
+            color: #333;
+        }
+        .red-select .fa-file-lines { color: #D32F2F; }
+
+        /* Zbytek stylů pro tabulku zůstává podobný */
+        .grades-section { text-align: center; }
+        .grades-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-radius: 15px; overflow: hidden; }
+        .grades-table th, .grades-table td { padding: 15px; text-align: center; }
+        .grades-table thead { background-color: #f9f9f9; font-size: 1.1em; }
+        .grades-table tbody tr:nth-child(even) { background-color: #fcfcfc; }
+        .grades-table td:first-child { text-align: left; font-weight: 700; display: flex; align-items: center; gap: 15px; }
+        .grade-box { display: inline-block; padding: 8px 15px; border-radius: 8px; color: white; font-weight: 700; }
+        .grade-5 { background-color: #EF5350; } .grade-3 { background-color: #FFEE58; color: #333; } .grade-1 { background-color: #66BB6A; } .grade-2 { background-color: #9CCC65; }
+        .btn-green { background-color: #9CCC65; color: white; padding: 15px 40px; border: none; border-radius: 12px; font-family: 'K2D', sans-serif; font-size: 1.2em; font-weight: 700; cursor: pointer; margin-top: 40px; }
 
     </style>
 </head>
@@ -212,36 +169,39 @@ html_sablona = """
     </section>
 
     <section class="app-section">
-        <div class="section-header">
-            <h2>Nastavte domácí úkoly</h2>
-            <p>Všechny domácí úkoly, testy a známky po ruce, stačí jen pár kliknutí.</p>
-            <button class="btn-red">Učitel</button>
-        </div>
+        <div class="main-header">Nastavte domácí úkoly</div>
+        <p class="sub-header">Připomeňte žákům, že mají domácí úkol! Stačí jen pár kliknutí.</p>
+        
+        <div class="widgets-container">
+            <div class="widget-item">
+                <h3>Domácí Úkoly <i class="fa-solid fa-chevron-down"></i></h3>
+                <div class="custom-select blue-select">
+                    <i class="fa-solid fa-book"></i>
+                    <span>Přírodopis</span>
+                    <span class="placeholder">23-MM</span>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </div>
+            </div>
 
-        <div class="widgets-grid">
-            <div class="widget-card">
-                <h3><i class="fa-solid fa-book"></i> Domácí Úkoly</h3>
-                <select>
-                    <option>Přírodopis</option>
-                    <option>Dějepis</option>
-                </select>
+            <div class="widget-item">
+                <h3>Testy <i class="fa-solid fa-chevron-down"></i></h3>
+                <div class="custom-select red-select">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Čeština</span>
+                    <span class="placeholder">23.9</span>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </div>
             </div>
-            <div class="widget-card">
-                <h3><i class="fa-solid fa-file-signature"></i> Testy</h3>
-                <select>
-                    <option>Čeština</option>
-                    <option>Matematika</option>
-                </select>
-            </div>
-            <div class="widget-card">
-                <h3><i class="fa-solid fa-triangle-exclamation"></i> Varujte žáky</h3>
-                <p>Napsal někdo špatně test? Vůbec nevadí! Stačí jen pár kliků a žáci budou varováni!</p>
+
+            <div class="widget-item">
+                <h3>Varujte žáky</h3>
+                <p>Zapomněli jste oznámit test? Vůbec nevadí! Stačí jen pár kliků a žáci budou oznámeni!</p>
             </div>
         </div>
 
         <div class="grades-section">
-            <h2>Známky</h2>
-            <p>Zapisování známek nikdy nebylo lehčí!</p>
+            <h2 style="font-weight: 800;">Známky</h2>
+            <p style="color: #555;">Zapisování známek nikdy nebylo lehčí!</p>
             <table class="grades-table">
                 <thead>
                     <tr>

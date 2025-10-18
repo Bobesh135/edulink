@@ -83,25 +83,37 @@ html_sablona = """
             margin: 0 auto;
         }
 
-        /* Nový dvousloupcový layout */
         .app-header-grid {
             display: flex;
-            align-items: center;
-            gap: 60px; /* Mezera mezi sloupci */
+            align-items: start; /* Zarovnáme nahoru */
+            gap: 60px;
             margin-bottom: 80px;
         }
         
         .header-text {
-            flex-basis: 40%; /* Levý sloupec zabere 40% */
+            flex-basis: 45%;
         }
         
         .header-widgets {
-            flex-basis: 60%; /* Pravý sloupec zabere 60% */
+            flex-basis: 55%;
             display: flex;
             flex-direction: column;
-            gap: 20px; /* Mezera mezi widgety pod sebou */
+            gap: 30px;
         }
 
+        .btn-teacher {
+            background-color: #E57373;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'K2D', sans-serif;
+            font-size: 0.9em;
+            cursor: pointer;
+            display: inline-block; /* Aby zabíralo jen potřebné místo */
+            margin-bottom: 15px;
+        }
+        
         .header-text .main-header {
             font-size: 2.8em;
             font-weight: 800;
@@ -115,9 +127,10 @@ html_sablona = """
         }
         
         .widget-item h3 {
-            font-size: 1.8em;
+            font-size: 1.6em;
+            font-weight: 700;
             margin-top: 0;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -128,14 +141,14 @@ html_sablona = """
         .custom-select {
             display: flex;
             align-items: center;
-            padding: 15px 20px;
-            border-radius: 12px;
+            padding: 12px 20px;
+            border-radius: 30px; /* Plně zakulacené rohy */
             font-size: 1.2em;
             font-weight: 700;
             cursor: pointer;
         }
         .custom-select .fa-solid { font-size: 1.2em; margin-right: 15px; }
-        .custom-select .placeholder { color: #999; margin-left: 10px; }
+        .custom-select .placeholder { color: #999; margin-left: auto; padding-right: 15px; }
         .custom-select .arrow { margin-left: auto; }
 
         .blue-select { background-color: white; border: 3px solid #002B55; color: #002B55; }
@@ -144,7 +157,7 @@ html_sablona = """
         .red-select { background-color: white; border: 3px solid #D32F2F; color: #333; }
         .red-select .fa-file-lines { color: #D32F2F; }
         
-        /* Zbytek stylů pro tabulku zůstává stejný */
+        /* === Zbytek stylů pro tabulku zůstává stejný === */
         .grades-section { text-align: center; }
         .grades-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-radius: 15px; overflow: hidden; }
         .grades-table th, .grades-table td { padding: 15px; text-align: center; }
@@ -155,13 +168,8 @@ html_sablona = """
         .grade-5 { background-color: #EF5350; } .grade-3 { background-color: #FFEE58; color: #333; } .grade-1 { background-color: #66BB6A; } .grade-2 { background-color: #9CCC65; }
         .btn-green { background-color: #9CCC65; color: white; padding: 15px 40px; border: none; border-radius: 12px; font-family: 'K2D', sans-serif; font-size: 1.2em; font-weight: 700; cursor: pointer; margin-top: 40px; }
         
-        /* Responsivní úpravy pro mobily */
         @media (max-width: 900px) {
-            .app-header-grid {
-                flex-direction: column; /* Sloupce se dají pod sebe */
-                gap: 40px;
-                text-align: center;
-            }
+            .app-header-grid { flex-direction: column; gap: 40px; text-align: center; }
         }
     </style>
 </head>
@@ -183,6 +191,7 @@ html_sablona = """
     <section class="app-section">
         <div class="app-header-grid">
             <div class="header-text">
+                <div class="btn-teacher">Učitel</div>
                 <div class="main-header">Nastavte domácí úkoly</div>
                 <p class="sub-header">Připomeňte žákům, že mají domácí úkol! Stačí jen pár kliknutí.</p>
             </div>
@@ -205,6 +214,10 @@ html_sablona = """
                         <span class="placeholder">23.9</span>
                         <i class="fa-solid fa-chevron-down arrow"></i>
                     </div>
+                </div>
+                 <div class="widget-item">
+                    <h3>Varujte žáky</h3>
+                    <p>Zapomněli jste oznámit test? Vůbec nevadí! Stačí jen pár kliků a žáci budou oznámeni!</p>
                 </div>
             </div>
         </div>

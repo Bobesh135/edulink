@@ -23,10 +23,10 @@ html_sablona = """
             margin: 0;
             padding: 0;
             font-family: 'K2D', sans-serif;
-            background-color: #FDFBF6; /* Světlé pozadí z tvého návrhu */
+            background-color: #FDFBF6;
         }
         
-        /* === ÚVODNÍ SEKCE (HERO) - zůstává stejná === */
+        /* === ÚVODNÍ SEKCE (HERO) - beze změny === */
         .hero-section {
             min-height: 100vh;
             position: relative;
@@ -78,28 +78,40 @@ html_sablona = """
         
         /* === PŘEPRACOVANÁ SEKCE APLIKACE === */
         .app-section {
-            padding: 60px 20px;
-            max-width: 1100px;
+            padding: 80px 40px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .main-header {
-            font-size: 2.2em;
-            font-weight: 800;
-            margin-bottom: 5px;
-        }
-        .sub-header {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 50px;
+        /* Nový dvousloupcový layout */
+        .app-header-grid {
+            display: flex;
+            align-items: center;
+            gap: 60px; /* Mezera mezi sloupci */
+            margin-bottom: 80px;
         }
         
-        .widgets-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            align-items: start; /* Zarovná položky nahoru */
-            margin-bottom: 60px;
+        .header-text {
+            flex-basis: 40%; /* Levý sloupec zabere 40% */
+        }
+        
+        .header-widgets {
+            flex-basis: 60%; /* Pravý sloupec zabere 60% */
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Mezera mezi widgety pod sebou */
+        }
+
+        .header-text .main-header {
+            font-size: 2.8em;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .header-text .sub-header {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.6;
         }
         
         .widget-item h3 {
@@ -126,21 +138,13 @@ html_sablona = """
         .custom-select .placeholder { color: #999; margin-left: 10px; }
         .custom-select .arrow { margin-left: auto; }
 
-        .blue-select {
-            background-color: white;
-            border: 3px solid #002B55;
-            color: #002B55;
-        }
+        .blue-select { background-color: white; border: 3px solid #002B55; color: #002B55; }
         .blue-select .fa-book { color: #0077ff; }
 
-        .red-select {
-            background-color: white;
-            border: 3px solid #D32F2F;
-            color: #333;
-        }
+        .red-select { background-color: white; border: 3px solid #D32F2F; color: #333; }
         .red-select .fa-file-lines { color: #D32F2F; }
-
-        /* Zbytek stylů pro tabulku zůstává podobný */
+        
+        /* Zbytek stylů pro tabulku zůstává stejný */
         .grades-section { text-align: center; }
         .grades-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-radius: 15px; overflow: hidden; }
         .grades-table th, .grades-table td { padding: 15px; text-align: center; }
@@ -150,7 +154,15 @@ html_sablona = """
         .grade-box { display: inline-block; padding: 8px 15px; border-radius: 8px; color: white; font-weight: 700; }
         .grade-5 { background-color: #EF5350; } .grade-3 { background-color: #FFEE58; color: #333; } .grade-1 { background-color: #66BB6A; } .grade-2 { background-color: #9CCC65; }
         .btn-green { background-color: #9CCC65; color: white; padding: 15px 40px; border: none; border-radius: 12px; font-family: 'K2D', sans-serif; font-size: 1.2em; font-weight: 700; cursor: pointer; margin-top: 40px; }
-
+        
+        /* Responsivní úpravy pro mobily */
+        @media (max-width: 900px) {
+            .app-header-grid {
+                flex-direction: column; /* Sloupce se dají pod sebe */
+                gap: 40px;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -169,84 +181,7 @@ html_sablona = """
     </section>
 
     <section class="app-section">
-        <div class="main-header">Nastavte domácí úkoly</div>
-        <p class="sub-header">Připomeňte žákům, že mají domácí úkol! Stačí jen pár kliknutí.</p>
-        
-        <div class="widgets-container">
-            <div class="widget-item">
-                <h3>Domácí Úkoly <i class="fa-solid fa-chevron-down"></i></h3>
-                <div class="custom-select blue-select">
-                    <i class="fa-solid fa-book"></i>
-                    <span>Přírodopis</span>
-                    <span class="placeholder">23-MM</span>
-                    <i class="fa-solid fa-chevron-down arrow"></i>
-                </div>
-            </div>
-
-            <div class="widget-item">
-                <h3>Testy <i class="fa-solid fa-chevron-down"></i></h3>
-                <div class="custom-select red-select">
-                    <i class="fa-solid fa-file-lines"></i>
-                    <span>Čeština</span>
-                    <span class="placeholder">23.9</span>
-                    <i class="fa-solid fa-chevron-down arrow"></i>
-                </div>
-            </div>
-
-            <div class="widget-item">
-                <h3>Varujte žáky</h3>
-                <p>Zapomněli jste oznámit test? Vůbec nevadí! Stačí jen pár kliků a žáci budou oznámeni!</p>
-            </div>
-        </div>
-
-        <div class="grades-section">
-            <h2 style="font-weight: 800;">Známky</h2>
-            <p style="color: #555;">Zapisování známek nikdy nebylo lehčí!</p>
-            <table class="grades-table">
-                <thead>
-                    <tr>
-                        <th>Žák</th>
-                        <th>Test</th>
-                        <th>Ústní zkoušení</th>
-                        <th>Poznámky</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Tom</td>
-                        <td><span class="grade-box grade-5">5</span></td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td>M-Učebnice str. 56</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Anna</td>
-                        <td><span class="grade-box grade-3">3</span></td>
-                        <td><span class="grade-box grade-3">3</span></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Nuttela</td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td><span class="grade-box grade-2">2</span></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Lukas</td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class="btn-green">Začít!</button>
-        </div>
-    </section>
-
-</body>
-</html>
-"""
-
-@app.route("/")
-def hlavni_stranka():
-    template = Template(html_sablona)
-    return template.render()
+        <div class="app-header-grid">
+            <div class="header-text">
+                <div class="main-header">Nastavte domácí úkoly</div>
+                <p class="sub-

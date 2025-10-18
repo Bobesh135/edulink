@@ -83,24 +83,20 @@ html_sablona = """
             margin: 0 auto;
         }
 
-        .app-header-grid {
+        /* ZMĚNA: Nová struktura řádků */
+        .app-row {
             display: flex;
-            align-items: start;
+            align-items: center;
             gap: 60px;
-            margin-bottom: 80px;
+            margin-bottom: 60px; /* Mezera mezi řádky */
         }
         
-        /* ZMĚNA: Levý sloupec je teď širší */
-        .header-text {
-            flex-basis: 55%;
+        .row-text {
+            flex: 1; /* Text zabere dostupný prostor */
         }
         
-        /* ZMĚNA: Pravý sloupec je užší */
-        .header-widgets {
-            flex-basis: 45%;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
+        .row-widget {
+            flex-basis: 50%; /* Widget zabere pevnou část */
         }
 
         .btn-teacher {
@@ -116,13 +112,13 @@ html_sablona = """
             margin-bottom: 15px;
         }
         
-        .header-text .main-header {
+        .row-text .main-header {
             font-size: 2.8em;
             font-weight: 800;
             margin-bottom: 10px;
         }
 
-        .header-text .sub-header {
+        .row-text .sub-header {
             font-size: 1.2em;
             color: #555;
             line-height: 1.6;
@@ -138,12 +134,6 @@ html_sablona = """
             gap: 8px;
         }
         .widget-item h3 .fa-chevron-down { font-size: 0.6em; }
-        .widget-item p { color: #555; line-height: 1.6; }
-        
-        /* ZMĚNA: Nová třída pro posunutí widgetu dolů */
-        .widget-item.lower {
-            margin-top: 25px;
-        }
 
         .custom-select {
             display: flex;
@@ -165,7 +155,7 @@ html_sablona = """
         .red-select .fa-file-lines { color: #D32F2F; }
         
         /* === Zbytek stylů pro tabulku zůstává stejný === */
-        .grades-section { text-align: center; }
+        .grades-section { text-align: center; margin-top: 80px; }
         .grades-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-radius: 15px; overflow: hidden; }
         .grades-table th, .grades-table td { padding: 15px; text-align: center; }
         .grades-table thead { background-color: #f9f9f9; font-size: 1.1em; }
@@ -176,7 +166,7 @@ html_sablona = """
         .btn-green { background-color: #9CCC65; color: white; padding: 15px 40px; border: none; border-radius: 12px; font-family: 'K2D', sans-serif; font-size: 1.2em; font-weight: 700; cursor: pointer; margin-top: 40px; }
         
         @media (max-width: 900px) {
-            .app-header-grid { flex-direction: column; gap: 40px; text-align: center; }
+            .app-row { flex-direction: column; gap: 40px; text-align: center; }
         }
     </style>
 </head>
@@ -196,14 +186,13 @@ html_sablona = """
     </section>
 
     <section class="app-section">
-        <div class="app-header-grid">
-            <div class="header-text">
+        <div class="app-row">
+            <div class="row-text">
                 <div class="btn-teacher">Učitel</div>
                 <div class="main-header">Nastavte domácí úkoly</div>
                 <p class="sub-header">Připomeňte žákům, že mají domácí úkol! Stačí jen pár kliknutí.</p>
             </div>
-
-            <div class="header-widgets">
+            <div class="row-widget">
                 <div class="widget-item">
                     <h3>Domácí Úkoly <i class="fa-solid fa-chevron-down"></i></h3>
                     <div class="custom-select blue-select">
@@ -213,6 +202,15 @@ html_sablona = """
                         <i class="fa-solid fa-chevron-down arrow"></i>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="app-row">
+            <div class="row-text">
+                 <div class="main-header">Varujte žáky</div>
+                 <p class="sub-header">Zapomněli jste oznámit test? Vůbec nevadí! Stačí jen pár kliků a žáci budou oznámeni!</p>
+            </div>
+            <div class="row-widget">
                 <div class="widget-item">
                     <h3>Testy <i class="fa-solid fa-chevron-down"></i></h3>
                     <div class="custom-select red-select">
@@ -221,10 +219,6 @@ html_sablona = """
                         <span class="placeholder">23.9</span>
                         <i class="fa-solid fa-chevron-down arrow"></i>
                     </div>
-                </div>
-                 <div class="widget-item lower">
-                    <h3>Varujte žáky</h3>
-                    <p>Zapomněli jste oznámit test? Vůbec nevadí! Stačí jen pár kliků a žáci budou oznámeni!</p>
                 </div>
             </div>
         </div>

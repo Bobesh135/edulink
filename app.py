@@ -18,53 +18,51 @@ html_sablona = """
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            color: white;
+            color: #002B55; 
             position: relative;
             overflow: hidden;
-            display: flex; /* Pomůže s zarovnáním */
+            display: flex;
         }
 
-        /* Pozadí s tvým obrázkem a překrytím */
         .background-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            /* ZDE JE VLOŽENÝ TVŮJ ODKAZ NA POZADÍ */
             background-image: url('https://i.postimg.cc/mkgf4rdr/Mask-group-11.png');
             background-size: cover;
             background-position: center;
-            filter: brightness(0.9); /* Lehce ztmavíme, aby vynikl text */
+            filter: brightness(0.65); 
             z-index: -1;
         }
 
-        /* Horní lišta - vycentrovaná */
+        /* Horní lišta - VĚTŠÍ */
         .top-bar {
             position: absolute;
             top: 40px;
-            left: 50%; /* Posuneme o 50% šířky obrazovky */
-            transform: translateX(-50%); /* Vrátíme o 50% vlastní šířky - tím se vycentruje */
+            left: 50%;
+            transform: translateX(-50%);
             background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 10px;
+            border-radius: 20px; 
+            padding: 15px 20px;
             display: flex;
-            align-items: center; /* Zarovná položky vertikálně na střed */
-            gap: 15px;
+            align-items: center;
+            gap: 25px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            font-family: 'Itim', cursive; /* Font z tvého návrhu */
-            font-size: 18px;
+            font-family: 'Itim', cursive;
+            font-size: 22px;
         }
 
         .top-bar a {
             text-decoration: none;
-            color: #333;
+            color: #002B55; 
             padding: 8px 15px;
         }
         
-        /* Ikonka uprostřed menu */
+        /* Ikonka uprostřed menu - VĚTŠÍ */
         .menu-icon {
-            height: 35px; /* Uprav velikost podle potřeby */
+            height: 45px;
             display: block;
         }
 
@@ -77,21 +75,22 @@ html_sablona = """
         }
 
         .main-content h1 {
-            font-family: 'K2D', sans-serif; /* Font z tvého návrhu */
+            font-family: 'K2D', sans-serif;
             font-size: 5em;
-            font-weight: 800; /* Extra tučné */
+            font-weight: 800;
             margin: 0;
             line-height: 1;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            color: #002B55;
+            /* text-shadow byl ODSTRANĚN */
         }
 
         .main-content p {
             font-family: 'K2D', sans-serif;
             font-size: 1.6em;
             font-weight: 400;
-            margin: 10px 0 0 5px; /* Malé odsazení od hlavního nadpisu */
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+            margin: 10px 0 0 5px;
+            color: #002B55;
+            /* text-shadow byl ODSTRANĚN */
         }
 
         /* Úpravy pro menší obrazovky */
@@ -102,7 +101,13 @@ html_sablona = """
             }
             .main-content h1 { font-size: 3.5em; }
             .main-content p { font-size: 1.2em; }
-            .top-bar { top: 20px; }
+            .top-bar { 
+                top: 20px;
+                font-size: 18px;
+             }
+             .menu-icon {
+                height: 35px;
+             }
         }
     </style>
 </head>

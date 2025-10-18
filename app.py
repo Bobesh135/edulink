@@ -184,4 +184,79 @@ html_sablona = """
         <div class="app-header-grid">
             <div class="header-text">
                 <div class="main-header">Nastavte domácí úkoly</div>
-                <p class="sub-
+                <p class="sub-header">Připomeňte žákům, že mají domácí úkol! Stačí jen pár kliknutí.</p>
+            </div>
+
+            <div class="header-widgets">
+                <div class="widget-item">
+                    <h3>Domácí Úkoly <i class="fa-solid fa-chevron-down"></i></h3>
+                    <div class="custom-select blue-select">
+                        <i class="fa-solid fa-book"></i>
+                        <span>Přírodopis</span>
+                        <span class="placeholder">23-MM</span>
+                        <i class="fa-solid fa-chevron-down arrow"></i>
+                    </div>
+                </div>
+                <div class="widget-item">
+                    <h3>Testy <i class="fa-solid fa-chevron-down"></i></h3>
+                    <div class="custom-select red-select">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span>Čeština</span>
+                        <span class="placeholder">23.9</span>
+                        <i class="fa-solid fa-chevron-down arrow"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grades-section">
+            <h2 style="font-weight: 800;">Známky</h2>
+            <p style="color: #555;">Zapisování známek nikdy nebylo lehčí!</p>
+            <table class="grades-table">
+                <thead>
+                    <tr>
+                        <th>Žák</th>
+                        <th>Test</th>
+                        <th>Ústní zkoušení</th>
+                        <th>Poznámky</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Tom</td>
+                        <td><span class="grade-box grade-5">5</span></td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td>M-Učebnice str. 56</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Anna</td>
+                        <td><span class="grade-box grade-3">3</span></td>
+                        <td><span class="grade-box grade-3">3</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Nuttela</td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td><span class="grade-box grade-2">2</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Lukas</td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn-green">Začít!</button>
+        </div>
+    </section>
+
+</body>
+</html>
+"""
+
+@app.route("/")
+def hlavni_stranka():
+    template = Template(html_sablona)
+    return template.render()

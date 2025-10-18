@@ -11,32 +11,32 @@ html_sablona = """
     <title>Edulink</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Itim&family=K2D:wght@400;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=K2D:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     
     <style>
         html {
-            scroll-behavior: smooth; /* Plynulé scrollování */
+            scroll-behavior: smooth;
         }
 
         body {
             margin: 0;
             padding: 0;
-            color: #002B55; 
-            background-color: #1E1E1E; /* Základní barva pro novou sekci */
+            font-family: 'K2D', sans-serif;
+            background-color: #FDFBF6; /* Světlé pozadí z tvého návrhu */
         }
         
-        /* === ÚVODNÍ SEKCE (HERO) === */
-
+        /* === ÚVODNÍ SEKCE (HERO) - zůstává stejná === */
         .hero-section {
-            min-height: 100vh; /* Zajistí, že úvodní sekce zabere celou obrazovku */
+            min-height: 100vh;
             position: relative;
             overflow: hidden;
             display: flex;
-            align-items: flex-end; /* Zarovná obsah dolů */
-            justify-content: flex-start; /* Zarovná obsah doleva */
+            align-items: flex-end;
+            justify-content: flex-start;
             padding: 60px 80px;
             box-sizing: border-box;
+            color: #002B55;
         }
 
         .background-image {
@@ -66,95 +66,134 @@ html_sablona = """
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
             font-family: 'Itim', cursive;
             font-size: 22px;
-            z-index: 2; /* Musí být nad pozadím */
-        }
-
-        .top-bar a {
-            text-decoration: none;
-            color: #002B55; 
-            padding: 8px 15px;
-        }
-        
-        .menu-icon {
-            height: 45px;
-            display: block;
-        }
-
-        .main-content {
-            position: relative; /* Změna z absolute */
-            z-index: 2;
-        }
-
-        .main-content h1 {
-            font-family: 'K2D', sans-serif;
-            font-size: 5em;
-            font-weight: 800;
-            margin: 0;
-            line-height: 1;
+            z-index: 3;
             color: #002B55;
         }
-
-        .main-content p {
-            font-family: 'K2D', sans-serif;
-            font-size: 1.6em;
-            font-weight: 400;
-            margin: 10px 0 0 5px;
-            color: #002B55;
-        }
+        .top-bar a { text-decoration: none; color: inherit; padding: 8px 15px; }
+        .menu-icon { height: 45px; display: block; }
         
-        /* === NOVÁ SEKCE "VÝHODY" === */
-
-        .features-section {
-            padding: 80px 40px; /* Vnitřní odsazení sekce */
-            text-align: center;
-            background-color: #1E1E1E; /* Tmavé pozadí z tvého prvního designu */
-        }
-
-        .features-section h2 {
-            font-family: 'K2D', sans-serif;
-            font-size: 3em;
-            color: #FFFFFF;
-            margin-bottom: 60px;
-        }
-
-        .features-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap; /* Pokud se nevejdou, zalamují se pod sebe */
-            max-width: 1200px;
+        .main-content { position: relative; z-index: 2; }
+        .main-content h1 { font-size: 5em; font-weight: 800; margin: 0; line-height: 1; }
+        .main-content p { font-size: 1.6em; font-weight: 400; margin: 10px 0 0 5px; }
+        
+        /* === NOVÁ SEKCE APLIKACE === */
+        .app-section {
+            padding: 60px 20px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .feature-card {
-            background-color: #2D2D2D;
-            border-radius: 15px;
-            padding: 30px;
-            flex-basis: 300px; /* Základní šířka karty */
-            flex-grow: 1; /* Karty se roztáhnou, aby vyplnily místo */
-            color: #FFFFFF;
-            border: 1px solid #3A3A3A;
-            box-shadow: 0px 0px 15px rgba(0, 119, 255, 0.1);
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-header h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+        }
+        .section-header p {
+            font-size: 1.2em;
+            color: #777;
+            margin-top: 5px;
+        }
+        .btn-red {
+            background-color: #E57373;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'K2D', sans-serif;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 15px;
         }
         
-        .feature-card i {
-            font-size: 3em; /* Velikost ikony */
-            color: #0077ff; /* Modrá barva pro ikony */
-            margin-bottom: 20px;
+        .widgets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
-
-        .feature-card h3 {
-            font-family: 'K2D', sans-serif;
+        
+        .widget-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .widget-card h3 {
+            margin-top: 0;
             font-size: 1.5em;
-            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .widget-card .fa-solid { color: #555; }
+        
+        select, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            font-family: 'K2D', sans-serif;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        
+        .grades-section { text-align: center; }
+        
+        .grades-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 15px;
+            overflow: hidden; /* Aby se stín a radius aplikoval na celou tabulku */
+        }
+        .grades-table th, .grades-table td {
+            padding: 15px;
+            text-align: center;
+        }
+        .grades-table thead {
+            background-color: #f9f9f9;
+            font-size: 1.1em;
+        }
+        .grades-table tbody tr:nth-child(even) { background-color: #fcfcfc; }
+        .grades-table td:first-child {
+            text-align: left;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .grade-box {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 700;
+        }
+        .grade-5 { background-color: #EF5350; } /* Červená */
+        .grade-3 { background-color: #FFEE58; color: #333; } /* Žlutá */
+        .grade-1 { background-color: #66BB6A; } /* Zelená */
+        .grade-2 { background-color: #9CCC65; } /* Světle zelená */
+        
+        .btn-green {
+            background-color: #9CCC65;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'K2D', sans-serif;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 40px;
         }
 
-        .feature-card p {
-            font-family: 'Itim', cursive;
-            font-size: 1.1em;
-            color: #AAAAAA;
-            line-height: 1.6;
-        }
     </style>
 </head>
 <body>
@@ -172,24 +211,74 @@ html_sablona = """
         </div>
     </section>
 
-    <section class="features-section">
-        <h2>Proč si vybrat Edulink?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="fas fa-chart-pie"></i>
-                <h3>Přehledné statistiky</h3>
-                <p>Veškeré známky a docházka v moderních a srozumitelných grafech.</p>
+    <section class="app-section">
+        <div class="section-header">
+            <h2>Nastavte domácí úkoly</h2>
+            <p>Všechny domácí úkoly, testy a známky po ruce, stačí jen pár kliknutí.</p>
+            <button class="btn-red">Učitel</button>
+        </div>
+
+        <div class="widgets-grid">
+            <div class="widget-card">
+                <h3><i class="fa-solid fa-book"></i> Domácí Úkoly</h3>
+                <select>
+                    <option>Přírodopis</option>
+                    <option>Dějepis</option>
+                </select>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-bell"></i>
-                <h3>Okamžité notifikace</h3>
-                <p>Nová známka? Změna v rozvrhu? Vše se ihned dozvíte díky chytrým upozorněním.</p>
+            <div class="widget-card">
+                <h3><i class="fa-solid fa-file-signature"></i> Testy</h3>
+                <select>
+                    <option>Čeština</option>
+                    <option>Matematika</option>
+                </select>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-check-circle"></i>
-                <h3>Jednoduchost</h3>
-                <p>Intuitivní a přehledné rozhraní, ve kterém se nikdo neztratí.</p>
+            <div class="widget-card">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Varujte žáky</h3>
+                <p>Napsal někdo špatně test? Vůbec nevadí! Stačí jen pár kliků a žáci budou varováni!</p>
             </div>
+        </div>
+
+        <div class="grades-section">
+            <h2>Známky</h2>
+            <p>Zapisování známek nikdy nebylo lehčí!</p>
+            <table class="grades-table">
+                <thead>
+                    <tr>
+                        <th>Žák</th>
+                        <th>Test</th>
+                        <th>Ústní zkoušení</th>
+                        <th>Poznámky</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Tom</td>
+                        <td><span class="grade-box grade-5">5</span></td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td>M-Učebnice str. 56</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Anna</td>
+                        <td><span class="grade-box grade-3">3</span></td>
+                        <td><span class="grade-box grade-3">3</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Nuttela</td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td><span class="grade-box grade-2">2</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Lukas</td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn-green">Začít!</button>
         </div>
     </section>
 

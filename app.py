@@ -85,17 +85,19 @@ html_sablona = """
 
         .app-header-grid {
             display: flex;
-            align-items: start; /* Zarovnáme nahoru */
+            align-items: start;
             gap: 60px;
             margin-bottom: 80px;
         }
         
+        /* ZMĚNA: Levý sloupec je teď širší */
         .header-text {
-            flex-basis: 45%;
+            flex-basis: 55%;
         }
         
+        /* ZMĚNA: Pravý sloupec je užší */
         .header-widgets {
-            flex-basis: 55%;
+            flex-basis: 45%;
             display: flex;
             flex-direction: column;
             gap: 30px;
@@ -110,7 +112,7 @@ html_sablona = """
             font-family: 'K2D', sans-serif;
             font-size: 0.9em;
             cursor: pointer;
-            display: inline-block; /* Aby zabíralo jen potřebné místo */
+            display: inline-block;
             margin-bottom: 15px;
         }
         
@@ -137,12 +139,17 @@ html_sablona = """
         }
         .widget-item h3 .fa-chevron-down { font-size: 0.6em; }
         .widget-item p { color: #555; line-height: 1.6; }
+        
+        /* ZMĚNA: Nová třída pro posunutí widgetu dolů */
+        .widget-item.lower {
+            margin-top: 25px;
+        }
 
         .custom-select {
             display: flex;
             align-items: center;
             padding: 12px 20px;
-            border-radius: 30px; /* Plně zakulacené rohy */
+            border-radius: 30px;
             font-size: 1.2em;
             font-weight: 700;
             cursor: pointer;
@@ -215,7 +222,7 @@ html_sablona = """
                         <i class="fa-solid fa-chevron-down arrow"></i>
                     </div>
                 </div>
-                 <div class="widget-item">
+                 <div class="widget-item lower">
                     <h3>Varujte žáky</h3>
                     <p>Zapomněli jste oznámit test? Vůbec nevadí! Stačí jen pár kliků a žáci budou oznámeni!</p>
                 </div>

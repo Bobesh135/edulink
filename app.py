@@ -145,7 +145,7 @@ html_sablona = """
         .student-card li { padding: 10px 0; border-bottom: 1px solid #eee; font-size: 1.1em; }
         .student-card li:last-child { border-bottom: none; }
         
-        /* === NOVÁ SEKCE CHATU === */
+        /* === SEKCE CHATU === */
         .chat-container {
             background-color: white;
             border-radius: 20px;
@@ -265,7 +265,41 @@ html_sablona = """
             <h2 style="font-weight: 800;">Známky</h2>
             <p style="color: #555;">Zapisování známek nikdy nebylo lehčí!</p>
             <table class="grades-table">
-                </table>
+                <thead>
+                    <tr>
+                        <th>Žák</th>
+                        <th>Test</th>
+                        <th>Ústní zkoušení</th>
+                        <th>Poznámky</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Tom</td>
+                        <td><span class="grade-box grade-5">5</span></td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td><span class="unsigned-note">Nepodepsáno</span></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Anna</td>
+                        <td><span class="grade-box grade-3">3</span></td>
+                        <td><span class="grade-box grade-3">3</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Nuttela</td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td><span class="grade-box grade-2">2</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Lukas</td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
             <button class="btn-green">Začít!</button>
         </div>
     </section>
@@ -276,10 +310,22 @@ html_sablona = """
                 <h2>Přehled</h2>
                 <p>Měj přehled o všem, o čem zasníš</p>
             </div>
+            
             <div class="student-card">
-                </div>
+                <h3><i class="fa-solid fa-clipboard-list"></i> Moje úkoly</h3>
+                <ul>
+                    <li>Přírodopis: Pracovní sešit str. 34-35 (do 24.10.)</li>
+                    <li>Dějepis: Přečíst kapitolu o Karlu IV. (do 26.10.)</li>
+                </ul>
+            </div>
             <div class="student-card">
-                </div>
+                <h3><i class="fa-solid fa-graduation-cap"></i> Moje známky</h3>
+                <ul>
+                    <li>Čeština - diktát: 2</li>
+                    <li>Matematika - pětiminutovka: 1</li>
+                    <li>Angličtina - slovíčka: 3</li>
+                </ul>
+            </div>
 
             <div class="section-header" style="margin-top: 80px;">
                 <h2>Komunikace a debaty</h2>

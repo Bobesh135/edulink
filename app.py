@@ -138,13 +138,35 @@ html_sablona = """
         .btn-green { background-color: #9CCC65; color: white; padding: 15px 40px; border: none; border-radius: 12px; font-family: 'K2D', sans-serif; font-size: 1.2em; font-weight: 700; cursor: pointer; margin-top: 40px; }
 
         /* === SEKCE PRO ŽÁKA === */
-        .student-section { padding: 60px 20px; background-color: #FDFBF6; }
+        .student-section { padding-top: 0; background-color: #FDFBF6; } /* Upraveno odsazení */
         .student-card { background-color: white; border-left: 5px solid #0077ff; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 900px; margin-left: auto; margin-right: auto; }
         .student-card h3 { margin-top: 0; color: #002B55; font-size: 1.6em; display: flex; align-items: center; gap: 15px; }
         .student-card ul { list-style: none; padding: 0; }
         .student-card li { padding: 10px 0; border-bottom: 1px solid #eee; font-size: 1.1em; }
         .student-card li:last-child { border-bottom: none; }
         
+        /* === STYL PRO ODDĚLOVAČ === */
+        .chat-separator {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 10px 0;
+            padding: 0 40px; /* Odsazení, aby nebyl přes celou šířku */
+        }
+        .chat-separator::before, .chat-separator::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .chat-separator:not(:empty)::before { margin-right: 1em; }
+        .chat-separator:not(:empty)::after { margin-left: 1em; }
+        .chat-separator span {
+            color: black;
+            font-weight: 700;
+            font-size: 1.2em; /* Zvětšeno pro lepší viditelnost */
+            font-family: 'K2D', sans-serif;
+        }
+
         /* === SEKCE CHATU === */
         .chat-container {
             background-color: white;
@@ -157,25 +179,6 @@ html_sablona = """
         .chat-header { text-align: center; font-size: 1.5em; font-weight: 700; color: #333; margin-bottom: 25px; }
         .chat-messages { display: flex; flex-direction: column; gap: 15px; }
         
-        .chat-separator {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            margin: 10px 0;
-        }
-        .chat-separator::before, .chat-separator::after {
-            content: '';
-            flex: 1;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .chat-separator:not(:empty)::before { margin-right: 1em; }
-        .chat-separator:not(:empty)::after { margin-left: 1em; }
-        .chat-separator span {
-            color: black;
-            font-weight: 700;
-            font-size: 0.9em;
-        }
-
         .message-bubble { padding: 12px 20px; border-radius: 20px; max-width: 70%; position: relative; color: white; }
         .message-bubble .name { font-weight: 700; margin-bottom: 5px; }
         .message-bubble .text { line-height: 1.5; padding-right: 50px; }
@@ -287,6 +290,10 @@ html_sablona = """
             <button class="btn-green">Začít!</button>
         </div>
     </section>
+
+    <div class="app-section">
+        <div class="chat-separator"><span>Žák</span></div>
+    </div>
 
     <section class="student-section">
         <div class="app-section">

@@ -26,7 +26,7 @@ html_sablona = """
             background-color: #FDFBF6;
         }
         
-        /* === ÚVODNÍ SEKCE (HERO) - beze změny === */
+        /* === ÚVODNÍ SEKCE (HERO) === */
         .hero-section {
             min-height: 100vh;
             position: relative;
@@ -70,11 +70,7 @@ html_sablona = """
             color: #002B55;
         }
         .top-bar a { text-decoration: none; color: inherit; padding: 8px 15px; }
-        
-        .menu-icon { 
-            height: 55px; 
-            display: block; 
-        }
+        .menu-icon { height: 55px; display: block; }
         
         .main-content { position: relative; z-index: 2; }
         .main-content h1 { font-size: 5em; font-weight: 800; margin: 0; line-height: 1; }
@@ -86,34 +82,29 @@ html_sablona = """
             max-width: 1200px;
             margin: 0 auto;
         }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-header h2 {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: #333;
+            margin: 0;
+        }
+        .section-header p {
+            font-size: 1.2em;
+            color: #777;
+            margin-top: 5px;
+        }
         
-        .role-switcher {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .btn {
-            color: white;
-            padding: 8px 20px;
-            border: none;
-            border-radius: 8px;
-            font-family: 'K2D', sans-serif;
-            font-size: 0.9em;
-            cursor: pointer;
-            display: inline-block;
-        }
-
+        .role-switcher { display: flex; gap: 15px; margin-bottom: 15px; }
+        .btn { color: white; padding: 8px 20px; border: none; border-radius: 8px; font-family: 'K2D', sans-serif; font-size: 0.9em; cursor: pointer; display: inline-block; }
         .btn-teacher { background-color: #E57373; }
-        .btn-student { background-color: #0077ff; } /* Nová modrá barva */
+        .btn-student { background-color: #0077ff; }
 
-        .app-row {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-        
+        .app-row { display: flex; align-items: center; gap: 60px; margin-bottom: 60px; }
         .row-text { flex: 1; }
         .row-widget { flex-basis: 50%; }
 
@@ -146,10 +137,11 @@ html_sablona = """
         .unsigned-note { background-color: transparent; border: 2px solid #D32F2F; color: #D32F2F; padding: 5px 12px; border-radius: 8px; font-weight: 700; font-size: 0.9em; display: inline-block; }
         .btn-green { background-color: #9CCC65; color: white; padding: 15px 40px; border: none; border-radius: 12px; font-family: 'K2D', sans-serif; font-size: 1.2em; font-weight: 700; cursor: pointer; margin-top: 40px; }
 
-        /* === NOVÁ SEKCE PRO ŽÁKA === */
+        /* === SEKCE PRO ŽÁKA === */
         .student-section {
             padding: 60px 20px;
-            background-color: #e3f2fd; /* Světle modré pozadí */
+            /* ZMĚNA ZDE: Sjednocení pozadí */
+            background-color: #FDFBF6; 
         }
         .student-card {
             background-color: white;
@@ -158,27 +150,14 @@ html_sablona = """
             padding: 25px;
             margin-bottom: 20px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            max-width: 900px; /* Omezení šířky karet */
+            margin-left: auto;
+            margin-right: auto;
         }
-        .student-card h3 {
-            margin-top: 0;
-            color: #002B55;
-            font-size: 1.6em;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .student-card ul {
-            list-style: none;
-            padding: 0;
-        }
-        .student-card li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            font-size: 1.1em;
-        }
-        .student-card li:last-child {
-            border-bottom: none;
-        }
+        .student-card h3 { margin-top: 0; color: #002B55; font-size: 1.6em; display: flex; align-items: center; gap: 15px; }
+        .student-card ul { list-style: none; padding: 0; }
+        .student-card li { padding: 10px 0; border-bottom: 1px solid #eee; font-size: 1.1em; }
+        .student-card li:last-child { border-bottom: none; }
         
         @media (max-width: 900px) {
             .app-row { flex-direction: column; gap: 40px; text-align: center; }
@@ -275,7 +254,6 @@ html_sablona = """
                     </tr>
                     <tr>
                         <td><i class="fa-solid fa-user"></i> Lukas</td>
-                        <td><i class="fa-solid fa-user"></i> Lukas</td>
                         <td><span class="grade-box grade-1">1</span></td>
                         <td><span class="grade-box grade-1">1</span></td>
                         <td></td>
@@ -288,6 +266,10 @@ html_sablona = """
 
     <section class="student-section">
         <div class="app-section">
+            <div class="section-header">
+                <h2>Přehled</h2>
+                <p>Měj přehled o všem, o čem zasníš</p>
+            </div>
             <div class="student-card">
                 <h3><i class="fa-solid fa-clipboard-list"></i> Moje úkoly</h3>
                 <ul>

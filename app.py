@@ -70,7 +70,12 @@ html_sablona = """
             color: #002B55;
         }
         .top-bar a { text-decoration: none; color: inherit; padding: 8px 15px; }
-        .menu-icon { height: 45px; display: block; }
+        
+        /* ZMĚNA ZDE: Větší ikona */
+        .menu-icon { 
+            height: 55px; 
+            display: block; 
+        }
         
         .main-content { position: relative; z-index: 2; }
         .main-content h1 { font-size: 5em; font-weight: 800; margin: 0; line-height: 1; }

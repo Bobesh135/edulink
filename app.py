@@ -138,26 +138,66 @@ html_sablona = """
         .btn-green { background-color: #9CCC65; color: white; padding: 15px 40px; border: none; border-radius: 12px; font-family: 'K2D', sans-serif; font-size: 1.2em; font-weight: 700; cursor: pointer; margin-top: 40px; }
 
         /* === SEKCE PRO ŽÁKA === */
-        .student-section {
-            padding: 60px 20px;
-            /* ZMĚNA ZDE: Sjednocení pozadí */
-            background-color: #FDFBF6; 
-        }
-        .student-card {
-            background-color: white;
-            border-left: 5px solid #0077ff;
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            max-width: 900px; /* Omezení šířky karet */
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .student-section { padding: 60px 20px; background-color: #FDFBF6; }
+        .student-card { background-color: white; border-left: 5px solid #0077ff; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 900px; margin-left: auto; margin-right: auto; }
         .student-card h3 { margin-top: 0; color: #002B55; font-size: 1.6em; display: flex; align-items: center; gap: 15px; }
         .student-card ul { list-style: none; padding: 0; }
         .student-card li { padding: 10px 0; border-bottom: 1px solid #eee; font-size: 1.1em; }
         .student-card li:last-child { border-bottom: none; }
+        
+        /* === NOVÁ SEKCE CHATU === */
+        .chat-container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+        }
+        .chat-header {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .chat-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .message-bubble {
+            padding: 12px 20px;
+            border-radius: 20px;
+            max-width: 70%;
+            position: relative;
+            color: white;
+        }
+        .message-bubble .name {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .message-bubble .text {
+            line-height: 1.5;
+            padding-right: 50px; /* Místo pro čas */
+        }
+        .message-bubble .timestamp {
+            font-size: 0.8em;
+            position: absolute;
+            bottom: 8px;
+            right: 15px;
+            color: rgba(255,255,255,0.7);
+        }
+        .sent {
+            background-color: #8BC34A; /* Zelená */
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        .received {
+            background-color: #757575; /* Tmavší šedá */
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
         
         @media (max-width: 900px) {
             .app-row { flex-direction: column; gap: 40px; text-align: center; }
@@ -225,41 +265,7 @@ html_sablona = """
             <h2 style="font-weight: 800;">Známky</h2>
             <p style="color: #555;">Zapisování známek nikdy nebylo lehčí!</p>
             <table class="grades-table">
-                <thead>
-                    <tr>
-                        <th>Žák</th>
-                        <th>Test</th>
-                        <th>Ústní zkoušení</th>
-                        <th>Poznámky</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Tom</td>
-                        <td><span class="grade-box grade-5">5</span></td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td><span class="unsigned-note">Nepodepsáno</span></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Anna</td>
-                        <td><span class="grade-box grade-3">3</span></td>
-                        <td><span class="grade-box grade-3">3</span></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Nuttela</td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td><span class="grade-box grade-2">2</span></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Lukas</td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+                </table>
             <button class="btn-green">Začít!</button>
         </div>
     </section>
@@ -271,19 +277,33 @@ html_sablona = """
                 <p>Měj přehled o všem, o čem zasníš</p>
             </div>
             <div class="student-card">
-                <h3><i class="fa-solid fa-clipboard-list"></i> Moje úkoly</h3>
-                <ul>
-                    <li>Přírodopis: Pracovní sešit str. 34-35 (do 24.10.)</li>
-                    <li>Dějepis: Přečíst kapitolu o Karlu IV. (do 26.10.)</li>
-                </ul>
-            </div>
+                </div>
             <div class="student-card">
-                <h3><i class="fa-solid fa-graduation-cap"></i> Moje známky</h3>
-                <ul>
-                    <li>Čeština - diktát: 2</li>
-                    <li>Matematika - pětiminutovka: 1</li>
-                    <li>Angličtina - slovíčka: 3</li>
-                </ul>
+                </div>
+
+            <div class="section-header" style="margin-top: 80px;">
+                <h2>Komunikace a debaty</h2>
+                <p>Piš si s ostatními, a dozvíš se, co potřebuješ</p>
+            </div>
+            <div class="chat-container">
+                <div class="chat-header">Skupina IV</div>
+                <div class="chat-messages">
+                    <div class="message-bubble sent">
+                        <div class="name">Tom</div>
+                        <div class="text">Bude zítra ten film?</div>
+                        <div class="timestamp">13:22</div>
+                    </div>
+                    <div class="message-bubble received">
+                        <div class="name">Nutella</div>
+                        <div class="text">Ano bude. Těším se! :D</div>
+                        <div class="timestamp">13:24</div>
+                    </div>
+                     <div class="message-bubble received">
+                        <div class="name">Marcela (Učitelka)</div>
+                        <div class="text">Nezapomeňte si vzít sebou něco dobrého!</div>
+                        <div class="timestamp">13:24</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

@@ -154,50 +154,35 @@ html_sablona = """
             margin: 0 auto;
             box-shadow: 0 4px 25px rgba(0,0,0,0.08);
         }
-        .chat-header {
-            text-align: center;
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 25px;
-        }
-        .chat-messages {
+        .chat-header { text-align: center; font-size: 1.5em; font-weight: 700; color: #333; margin-bottom: 25px; }
+        .chat-messages { display: flex; flex-direction: column; gap: 15px; }
+        
+        /* ZMĚNA ZDE: Nový styl pro oddělovač */
+        .chat-separator {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            align-items: center;
+            text-align: center;
+            margin: 10px 0;
         }
-        .message-bubble {
-            padding: 12px 20px;
-            border-radius: 20px;
-            max-width: 70%;
-            position: relative;
-            color: white;
+        .chat-separator::before, .chat-separator::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #e0e0e0;
         }
-        .message-bubble .name {
+        .chat-separator:not(:empty)::before { margin-right: 1em; }
+        .chat-separator:not(:empty)::after { margin-left: 1em; }
+        .chat-separator span {
+            color: black;
             font-weight: 700;
-            margin-bottom: 5px;
+            font-size: 0.9em;
         }
-        .message-bubble .text {
-            line-height: 1.5;
-            padding-right: 50px; /* Místo pro čas */
-        }
-        .message-bubble .timestamp {
-            font-size: 0.8em;
-            position: absolute;
-            bottom: 8px;
-            right: 15px;
-            color: rgba(255,255,255,0.7);
-        }
-        .sent {
-            background-color: #8BC34A; /* Zelená */
-            align-self: flex-end;
-            border-bottom-right-radius: 5px;
-        }
-        .received {
-            background-color: #757575; /* Tmavší šedá */
-            align-self: flex-start;
-            border-bottom-left-radius: 5px;
-        }
+
+        .message-bubble { padding: 12px 20px; border-radius: 20px; max-width: 70%; position: relative; color: white; }
+        .message-bubble .name { font-weight: 700; margin-bottom: 5px; }
+        .message-bubble .text { line-height: 1.5; padding-right: 50px; }
+        .message-bubble .timestamp { font-size: 0.8em; position: absolute; bottom: 8px; right: 15px; color: rgba(255,255,255,0.7); }
+        .sent { background-color: #8BC34A; align-self: flex-end; border-bottom-right-radius: 5px; }
+        .received { background-color: #757575; align-self: flex-start; border-bottom-left-radius: 5px; }
         
         @media (max-width: 900px) {
             .app-row { flex-direction: column; gap: 40px; text-align: center; }
@@ -221,88 +206,7 @@ html_sablona = """
     </section>
 
     <section class="app-section">
-        <div class="app-row">
-            <div class="row-text">
-                <div class="role-switcher">
-                    <div class="btn btn-teacher">Učitel</div>
-                    <div class="btn btn-student">Žák</div>
-                </div>
-                <div class="main-header">Nastavte domácí úkoly</div>
-                <p class="sub-header">Připomeňte žákům, že mají domácí úkol! Stačí jen pár kliknutí.</p>
-            </div>
-            <div class="row-widget">
-                <div class="widget-item">
-                    <h3>Domácí Úkoly <i class="fa-solid fa-chevron-down"></i></h3>
-                    <div class="custom-select blue-select">
-                        <i class="fa-solid fa-book"></i>
-                        <span>Přírodopis</span>
-                        <span class="placeholder">23-MM</span>
-                        <i class="fa-solid fa-chevron-down arrow"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="app-row reversed">
-            <div class="row-widget">
-                <div class="widget-item">
-                    <h3>Testy <i class="fa-solid fa-chevron-down"></i></h3>
-                    <div class="custom-select red-select">
-                        <i class="fa-solid fa-file-lines"></i>
-                        <span>Čeština</span>
-                        <span class="placeholder">23.9</span>
-                        <i class="fa-solid fa-chevron-down arrow"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="row-text" style="text-align: right;">
-                 <div class="main-header">Varujte žáky</div>
-                 <p class="sub-header">Zapomněli jste oznámit test? Vůbec nevadí! Stačí jen pár kliků a žáci budou oznámeni!</p>
-            </div>
-        </div>
-
-        <div class="grades-section">
-            <h2 style="font-weight: 800;">Známky</h2>
-            <p style="color: #555;">Zapisování známek nikdy nebylo lehčí!</p>
-            <table class="grades-table">
-                <thead>
-                    <tr>
-                        <th>Žák</th>
-                        <th>Test</th>
-                        <th>Ústní zkoušení</th>
-                        <th>Poznámky</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Tom</td>
-                        <td><span class="grade-box grade-5">5</span></td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td><span class="unsigned-note">Nepodepsáno</span></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Anna</td>
-                        <td><span class="grade-box grade-3">3</span></td>
-                        <td><span class="grade-box grade-3">3</span></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Nuttela</td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td><span class="grade-box grade-2">2</span></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Lukas</td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class="btn-green">Začít!</button>
-        </div>
-    </section>
+        </section>
 
     <section class="student-section">
         <div class="app-section">
@@ -334,6 +238,7 @@ html_sablona = """
             <div class="chat-container">
                 <div class="chat-header">Skupina IV</div>
                 <div class="chat-messages">
+                    <div class="chat-separator"><span>Dnes</span></div>
                     <div class="message-bubble sent">
                         <div class="name">Tom</div>
                         <div class="text">Bude zítra ten film?</div>

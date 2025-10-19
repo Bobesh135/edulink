@@ -53,7 +53,6 @@ html_sablona = """
         }
 
         .top-bar {
-            /* ZMĚNA ZDE: "fixed" zajistí, že menu zůstane na místě při scrollování */
             position: fixed;
             top: 40px;
             left: 50%;
@@ -67,7 +66,7 @@ html_sablona = """
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
             font-family: 'Itim', cursive;
             font-size: 22px;
-            z-index: 1000; /* Zvýšíme z-index, aby bylo vždy úplně nahoře */
+            z-index: 1000;
             color: #002B55;
         }
         .top-bar a { text-decoration: none; color: inherit; padding: 8px 15px; }
@@ -161,8 +160,22 @@ html_sablona = """
         .grades-table thead { background-color: #f9f9f9; font-size: 1.1em; }
         .grades-table tbody tr:nth-child(even) { background-color: #fcfcfc; }
         .grades-table td:first-child { text-align: left; font-weight: 700; display: flex; align-items: center; gap: 15px; }
+        
         .grade-box { display: inline-block; padding: 8px 15px; border-radius: 8px; color: white; font-weight: 700; }
         .grade-5 { background-color: #EF5350; } .grade-3 { background-color: #FFEE58; color: #333; } .grade-1 { background-color: #66BB6A; } .grade-2 { background-color: #9CCC65; }
+        
+        /* ZMĚNA ZDE: Nový styl pro tlačítko "Nepodepsáno" */
+        .unsigned-note {
+            background-color: transparent;
+            border: 2px solid #D32F2F;
+            color: #D32F2F;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9em;
+            display: inline-block;
+        }
+        
         .btn-green { background-color: #9CCC65; color: white; padding: 15px 40px; border: none; border-radius: 12px; font-family: 'K2D', sans-serif; font-size: 1.2em; font-weight: 700; cursor: pointer; margin-top: 40px; }
         
         @media (max-width: 900px) {
@@ -240,7 +253,7 @@ html_sablona = """
                         <td><i class="fa-solid fa-user"></i> Tom</td>
                         <td><span class="grade-box grade-5">5</span></td>
                         <td><span class="grade-box grade-1">1</span></td>
-                        <td>M-Učebnice str. 56</td>
+                        <td><span class="unsigned-note">Nepodepsáno</span></td>
                     </tr>
                     <tr>
                         <td><i class="fa-solid fa-user"></i> Anna</td>

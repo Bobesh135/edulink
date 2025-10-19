@@ -71,7 +71,6 @@ html_sablona = """
         }
         .top-bar a { text-decoration: none; color: inherit; padding: 8px 15px; }
         
-        /* ZMĚNA ZDE: Větší ikona */
         .menu-icon { 
             height: 55px; 
             display: block; 
@@ -81,30 +80,20 @@ html_sablona = """
         .main-content h1 { font-size: 5em; font-weight: 800; margin: 0; line-height: 1; }
         .main-content p { font-size: 1.6em; font-weight: 400; margin: 10px 0 0 5px; }
         
-        /* === SEKCE APLIKACE === */
+        /* === SEKCE APLIKACE (SPOLEČNÉ STYLY) === */
         .app-section {
             padding: 80px 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
-
-        .app-row {
+        
+        .role-switcher {
             display: flex;
-            align-items: center;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-        
-        .row-text {
-            flex: 1;
-        }
-        
-        .row-widget {
-            flex-basis: 50%;
+            gap: 15px;
+            margin-bottom: 15px;
         }
 
-        .btn-teacher {
-            background-color: #E57373;
+        .btn {
             color: white;
             padding: 8px 20px;
             border: none;
@@ -113,41 +102,28 @@ html_sablona = """
             font-size: 0.9em;
             cursor: pointer;
             display: inline-block;
-            margin-bottom: 15px;
-        }
-        
-        .row-text .main-header {
-            font-size: 2.8em;
-            font-weight: 800;
-            margin-bottom: 10px;
         }
 
-        .row-text .sub-header {
-            font-size: 1.2em;
-            color: #555;
-            line-height: 1.6;
-        }
-        
-        .widget-item h3 {
-            font-size: 1.6em;
-            font-weight: 700;
-            margin-top: 0;
-            margin-bottom: 10px;
+        .btn-teacher { background-color: #E57373; }
+        .btn-student { background-color: #0077ff; } /* Nová modrá barva */
+
+        .app-row {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 60px;
+            margin-bottom: 60px;
         }
+        
+        .row-text { flex: 1; }
+        .row-widget { flex-basis: 50%; }
+
+        .row-text .main-header { font-size: 2.8em; font-weight: 800; margin-bottom: 10px; }
+        .row-text .sub-header { font-size: 1.2em; color: #555; line-height: 1.6; }
+        
+        .widget-item h3 { font-size: 1.6em; font-weight: 700; margin-top: 0; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
         .widget-item h3 .fa-chevron-down { font-size: 0.6em; }
 
-        .custom-select {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            border-radius: 30px;
-            font-size: 1.2em;
-            font-weight: 700;
-            cursor: pointer;
-        }
+        .custom-select { display: flex; align-items: center; padding: 12px 20px; border-radius: 30px; font-size: 1.2em; font-weight: 700; cursor: pointer; }
         .custom-select .fa-solid { font-size: 1.2em; margin-right: 15px; }
         .custom-select .placeholder { color: #999; margin-left: auto; padding-right: 15px; }
         .custom-select .arrow { margin-left: auto; }
@@ -158,7 +134,7 @@ html_sablona = """
         .red-select { background-color: white; border: 3px solid #D32F2F; color: #333; }
         .red-select .fa-file-lines { color: #D32F2F; }
         
-        /* === SEKCE ZNÁMKY === */
+        /* === SEKCE ZNÁMKY (UČITEL) === */
         .grades-section { text-align: center; margin-top: 80px; }
         .grades-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-radius: 15px; overflow: hidden; }
         .grades-table th, .grades-table td { padding: 15px; text-align: center; }
@@ -169,10 +145,44 @@ html_sablona = """
         .grade-5 { background-color: #EF5350; } .grade-3 { background-color: #FFEE58; color: #333; } .grade-1 { background-color: #66BB6A; } .grade-2 { background-color: #9CCC65; }
         .unsigned-note { background-color: transparent; border: 2px solid #D32F2F; color: #D32F2F; padding: 5px 12px; border-radius: 8px; font-weight: 700; font-size: 0.9em; display: inline-block; }
         .btn-green { background-color: #9CCC65; color: white; padding: 15px 40px; border: none; border-radius: 12px; font-family: 'K2D', sans-serif; font-size: 1.2em; font-weight: 700; cursor: pointer; margin-top: 40px; }
+
+        /* === NOVÁ SEKCE PRO ŽÁKA === */
+        .student-section {
+            padding: 60px 20px;
+            background-color: #e3f2fd; /* Světle modré pozadí */
+        }
+        .student-card {
+            background-color: white;
+            border-left: 5px solid #0077ff;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .student-card h3 {
+            margin-top: 0;
+            color: #002B55;
+            font-size: 1.6em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .student-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .student-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1em;
+        }
+        .student-card li:last-child {
+            border-bottom: none;
+        }
         
         @media (max-width: 900px) {
             .app-row { flex-direction: column; gap: 40px; text-align: center; }
-            .app-row.reversed { flex-direction: column-reverse; } /* Prohození na mobilu */
+            .app-row.reversed { flex-direction: column-reverse; }
         }
     </style>
 </head>
@@ -194,7 +204,10 @@ html_sablona = """
     <section class="app-section">
         <div class="app-row">
             <div class="row-text">
-                <div class="btn-teacher">Učitel</div>
+                <div class="role-switcher">
+                    <div class="btn btn-teacher">Učitel</div>
+                    <div class="btn btn-student">Žák</div>
+                </div>
                 <div class="main-header">Nastavte domácí úkoly</div>
                 <p class="sub-header">Připomeňte žákům, že mají domácí úkol! Stačí jen pár kliknutí.</p>
             </div>
@@ -262,6 +275,7 @@ html_sablona = """
                     </tr>
                     <tr>
                         <td><i class="fa-solid fa-user"></i> Lukas</td>
+                        <td><i class="fa-solid fa-user"></i> Lukas</td>
                         <td><span class="grade-box grade-1">1</span></td>
                         <td><span class="grade-box grade-1">1</span></td>
                         <td></td>
@@ -269,6 +283,26 @@ html_sablona = """
                 </tbody>
             </table>
             <button class="btn-green">Začít!</button>
+        </div>
+    </section>
+
+    <section class="student-section">
+        <div class="app-section">
+            <div class="student-card">
+                <h3><i class="fa-solid fa-clipboard-list"></i> Moje úkoly</h3>
+                <ul>
+                    <li>Přírodopis: Pracovní sešit str. 34-35 (do 24.10.)</li>
+                    <li>Dějepis: Přečíst kapitolu o Karlu IV. (do 26.10.)</li>
+                </ul>
+            </div>
+            <div class="student-card">
+                <h3><i class="fa-solid fa-graduation-cap"></i> Moje známky</h3>
+                <ul>
+                    <li>Čeština - diktát: 2</li>
+                    <li>Matematika - pětiminutovka: 1</li>
+                    <li>Angličtina - slovíčka: 3</li>
+                </ul>
+            </div>
         </div>
     </section>
 

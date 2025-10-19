@@ -160,26 +160,14 @@ html_sablona = """
         .grades-table thead { background-color: #f9f9f9; font-size: 1.1em; }
         .grades-table tbody tr:nth-child(even) { background-color: #fcfcfc; }
         .grades-table td:first-child { text-align: left; font-weight: 700; display: flex; align-items: center; gap: 15px; }
-        
         .grade-box { display: inline-block; padding: 8px 15px; border-radius: 8px; color: white; font-weight: 700; }
         .grade-5 { background-color: #EF5350; } .grade-3 { background-color: #FFEE58; color: #333; } .grade-1 { background-color: #66BB6A; } .grade-2 { background-color: #9CCC65; }
-        
-        /* ZMĚNA ZDE: Nový styl pro tlačítko "Nepodepsáno" */
-        .unsigned-note {
-            background-color: transparent;
-            border: 2px solid #D32F2F;
-            color: #D32F2F;
-            padding: 5px 12px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.9em;
-            display: inline-block;
-        }
-        
+        .unsigned-note { background-color: transparent; border: 2px solid #D32F2F; color: #D32F2F; padding: 5px 12px; border-radius: 8px; font-weight: 700; font-size: 0.9em; display: inline-block; }
         .btn-green { background-color: #9CCC65; color: white; padding: 15px 40px; border: none; border-radius: 12px; font-family: 'K2D', sans-serif; font-size: 1.2em; font-weight: 700; cursor: pointer; margin-top: 40px; }
         
         @media (max-width: 900px) {
             .app-row { flex-direction: column; gap: 40px; text-align: center; }
+            .app-row.reversed { flex-direction: column-reverse; } /* Prohození na mobilu */
         }
     </style>
 </head>
@@ -218,11 +206,7 @@ html_sablona = """
             </div>
         </div>
 
-        <div class="app-row">
-            <div class="row-text">
-                 <div class="main-header">Varujte žáky</div>
-                 <p class="sub-header">Zapomněli jste oznámit test? Vůbec nevadí! Stačí jen pár kliků a žáci budou oznámeni!</p>
-            </div>
+        <div class="app-row reversed">
             <div class="row-widget">
                 <div class="widget-item">
                     <h3>Testy <i class="fa-solid fa-chevron-down"></i></h3>
@@ -233,6 +217,10 @@ html_sablona = """
                         <i class="fa-solid fa-chevron-down arrow"></i>
                     </div>
                 </div>
+            </div>
+            <div class="row-text" style="text-align: right;">
+                 <div class="main-header">Varujte žáky</div>
+                 <p class="sub-header">Zapomněli jste oznámit test? Vůbec nevadí! Stačí jen pár kliků a žáci budou oznámeni!</p>
             </div>
         </div>
 

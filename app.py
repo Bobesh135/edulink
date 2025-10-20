@@ -132,7 +132,7 @@ html_sablona = """
         .unsigned-note { background-color: transparent; border: 2px solid #D32F2F; color: #D32F2F; padding: 5px 12px; border-radius: 8px; font-weight: 700; font-size: 0.9em; display: inline-block; }
         
         /* === SEKCE PRO ŽÁKA === */
-        .student-section { padding-top: 0; background-color: #FDFBF6; }
+        .student-section { padding-top: 0; background-color: #FDFBF6; text-align: center; }
         .student-card { text-align: left; background-color: white; border-left: 5px solid #0077ff; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 900px; margin-left: auto; margin-right: auto; }
         .student-card h3 { margin-top: 0; color: #002B55; font-size: 1.6em; display: flex; align-items: center; gap: 15px; }
         .student-card ul { list-style: none; padding: 0; }
@@ -162,41 +162,12 @@ html_sablona = """
         .sent { background-color: #8BC34A; align-self: flex-end; border-bottom-right-radius: 5px; }
         .received { background-color: #757575; align-self: flex-start; border-bottom-left-radius: 5px; }
         
-        /* === ZMĚNA ZDE: NOVÁ ZÁVĚREČNÁ SEKCE === */
-        .cta-section {
-            padding: 80px 40px;
-            text-align: center;
-        }
-        .cta-logo {
-            height: 60px;
-            margin-bottom: 20px;
-        }
-        .cta-section h2 {
-            font-family: 'K2D', sans-serif;
-            font-weight: 800;
-            font-size: 3em;
-            color: #002B55;
-            margin: 0;
-        }
-        .cta-section p {
-            font-size: 1.3em;
-            color: #002B55;
-            margin-top: 5px;
-            margin-bottom: 30px;
-        }
-        .cta-button {
-            background-color: #00E676; /* Zářivě zelená */
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 12px;
-            font-family: 'K2D', sans-serif;
-            font-size: 1.2em;
-            font-weight: 700;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
+        /* === ZÁVĚREČNÁ SEKCE === */
+        .cta-section { padding: 80px 40px; text-align: center; }
+        .cta-logo { height: 60px; margin-bottom: 20px; }
+        .cta-section h2 { font-family: 'K2D', sans-serif; font-weight: 800; font-size: 3em; color: #002B55; margin: 0; }
+        .cta-section p { font-size: 1.3em; color: #002B55; margin-top: 5px; margin-bottom: 30px; }
+        .cta-button { background-color: #00E676; color: white; padding: 15px 40px; border: none; border-radius: 12px; font-family: 'K2D', sans-serif; font-size: 1.2em; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; }
         
         @media (max-width: 900px) {
             .app-row { flex-direction: column; gap: 40px; text-align: center; }
@@ -277,7 +248,25 @@ html_sablona = """
                         <td><span class="grade-box grade-1">1</span></td>
                         <td><span class="unsigned-note">Nepodepsáno</span></td>
                     </tr>
-                    </tbody>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Anna</td>
+                        <td><span class="grade-box grade-3">3</span></td>
+                        <td><span class="grade-box grade-3">3</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Nuttela</td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td><span class="grade-box grade-2">2</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-user"></i> Lukas</td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td><span class="grade-box grade-1">1</span></td>
+                        <td></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </section>
@@ -322,8 +311,19 @@ html_sablona = """
                         <div class="text">Bude zítra ten film?</div>
                         <div class="timestamp">13:22</div>
                     </div>
+                    <div class="message-bubble received">
+                        <div class="name">Nutella</div>
+                        <div class="text">Ano bude. Těším se! :D</div>
+                        <div class="timestamp">13:24</div>
                     </div>
+                     <div class="message-bubble received">
+                        <div class="name">Marcela (Učitelka)</div>
+                        <div class="text">Nezapomeňte si vzít sebou něco dobrého!</div>
+                        <div class="timestamp">13:24</div>
+                    </div>
+                </div>
             </div>
+            <a href="#" class="cta-button" style="margin-top: 40px;">Začít</a>
         </div>
     </section>
 

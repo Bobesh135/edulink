@@ -130,10 +130,9 @@ html_sablona = """
         .grade-box { display: inline-block; padding: 8px 15px; border-radius: 8px; color: white; font-weight: 700; }
         .grade-5 { background-color: #EF5350; } .grade-3 { background-color: #FFEE58; color: #333; } .grade-1 { background-color: #66BB6A; } .grade-2 { background-color: #9CCC65; }
         .unsigned-note { background-color: transparent; border: 2px solid #D32F2F; color: #D32F2F; padding: 5px 12px; border-radius: 8px; font-weight: 700; font-size: 0.9em; display: inline-block; }
-        .btn-green { background-color: #9CCC65; color: white; padding: 15px 40px; border: none; border-radius: 12px; font-family: 'K2D', sans-serif; font-size: 1.2em; font-weight: 700; cursor: pointer; margin-top: 40px; }
-
+        
         /* === SEKCE PRO ŽÁKA === */
-        .student-section { padding-top: 0; background-color: #FDFBF6; text-align: center; } /* Přidáno zarovnání na střed */
+        .student-section { padding-top: 0; background-color: #FDFBF6; }
         .student-card { text-align: left; background-color: white; border-left: 5px solid #0077ff; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 900px; margin-left: auto; margin-right: auto; }
         .student-card h3 { margin-top: 0; color: #002B55; font-size: 1.6em; display: flex; align-items: center; gap: 15px; }
         .student-card ul { list-style: none; padding: 0; }
@@ -141,64 +140,63 @@ html_sablona = """
         .student-card li:last-child { border-bottom: none; }
         
         /* === STYL PRO ODDĚLOVAČ === */
-        .section-separator {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding: 0 40px;
-        }
-        .section-separator::before, .section-separator::after {
-            content: '';
-            flex: 1;
-            border-bottom: 1px solid #e0e0e0;
-        }
+        .section-separator { display: flex; align-items: center; text-align: center; padding: 0 40px; }
+        .section-separator::before, .section-separator::after { content: ''; flex: 1; border-bottom: 1px solid #e0e0e0; }
         .section-separator:not(:empty)::before { margin-right: 1.5em; }
         .section-separator:not(:empty)::after { margin-left: 1.5em; }
-        .section-separator span {
-            color: black;
-            font-weight: 800;
-            font-size: 1.5em;
-            font-family: 'K2D', sans-serif;
-        }
+        .section-separator span { color: black; font-weight: 800; font-size: 1.5em; font-family: 'K2D', sans-serif; }
 
         /* === SEKCE CHATU === */
-        .chat-container {
-            text-align: left; /* Vráceno zarovnání pro chat */
-            background-color: white;
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 900px;
-            margin: 0 auto;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
-        }
+        .chat-container { text-align: left; background-color: white; border-radius: 20px; padding: 30px; max-width: 900px; margin: 0 auto; box-shadow: 0 4px 25px rgba(0,0,0,0.08); }
         .chat-header { text-align: center; font-size: 1.5em; font-weight: 700; color: #333; margin-bottom: 25px; }
         .chat-messages { display: flex; flex-direction: column; gap: 15px; }
-        
-        .chat-separator {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            margin: 10px 0;
-        }
-        .chat-separator::before, .chat-separator::after {
-            content: '';
-            flex: 1;
-            border-bottom: 1px solid #e0e0e0;
-        }
+        .chat-separator { display: flex; align-items: center; text-align: center; margin: 10px 0; }
+        .chat-separator::before, .chat-separator::after { content: ''; flex: 1; border-bottom: 1px solid #e0e0e0; }
         .chat-separator:not(:empty)::before { margin-right: 1em; }
         .chat-separator:not(:empty)::after { margin-left: 1em; }
-        .chat-separator span {
-            color: black;
-            font-weight: 700;
-            font-size: 0.9em;
-        }
-
+        .chat-separator span { color: black; font-weight: 700; font-size: 0.9em; }
         .message-bubble { padding: 12px 20px; border-radius: 20px; max-width: 70%; position: relative; color: white; }
         .message-bubble .name { font-weight: 700; margin-bottom: 5px; }
         .message-bubble .text { line-height: 1.5; padding-right: 50px; }
         .message-bubble .timestamp { font-size: 0.8em; position: absolute; bottom: 8px; right: 15px; color: rgba(255,255,255,0.7); }
         .sent { background-color: #8BC34A; align-self: flex-end; border-bottom-right-radius: 5px; }
         .received { background-color: #757575; align-self: flex-start; border-bottom-left-radius: 5px; }
+        
+        /* === ZMĚNA ZDE: NOVÁ ZÁVĚREČNÁ SEKCE === */
+        .cta-section {
+            padding: 80px 40px;
+            text-align: center;
+        }
+        .cta-logo {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+        .cta-section h2 {
+            font-family: 'K2D', sans-serif;
+            font-weight: 800;
+            font-size: 3em;
+            color: #002B55;
+            margin: 0;
+        }
+        .cta-section p {
+            font-size: 1.3em;
+            color: #002B55;
+            margin-top: 5px;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            background-color: #00E676; /* Zářivě zelená */
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'K2D', sans-serif;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
         
         @media (max-width: 900px) {
             .app-row { flex-direction: column; gap: 40px; text-align: center; }
@@ -279,25 +277,7 @@ html_sablona = """
                         <td><span class="grade-box grade-1">1</span></td>
                         <td><span class="unsigned-note">Nepodepsáno</span></td>
                     </tr>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Anna</td>
-                        <td><span class="grade-box grade-3">3</span></td>
-                        <td><span class="grade-box grade-3">3</span></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Nuttela</td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td><span class="grade-box grade-2">2</span></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa-solid fa-user"></i> Lukas</td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td><span class="grade-box grade-1">1</span></td>
-                        <td></td>
-                    </tr>
-                </tbody>
+                    </tbody>
             </table>
         </div>
     </section>
@@ -342,20 +322,16 @@ html_sablona = """
                         <div class="text">Bude zítra ten film?</div>
                         <div class="timestamp">13:22</div>
                     </div>
-                    <div class="message-bubble received">
-                        <div class="name">Nutella</div>
-                        <div class="text">Ano bude. Těším se! :D</div>
-                        <div class="timestamp">13:24</div>
                     </div>
-                     <div class="message-bubble received">
-                        <div class="name">Marcela (Učitelka)</div>
-                        <div class="text">Nezapomeňte si vzít sebou něco dobrého!</div>
-                        <div class="timestamp">13:24</div>
-                    </div>
-                </div>
             </div>
-            <button class="btn-green">Začít!</button>
         </div>
+    </section>
+
+    <section class="cta-section">
+        <img src="https://i.postimg.cc/XJ8St5gX/Chat-GPT-Image-18-10-2025-22-42-10-1.png" class="cta-logo" alt="Edulink logo">
+        <h2>Edulink</h2>
+        <p>“Přehledná aplikace, kde všichni vidí vše”</p>
+        <a href="#" class="cta-button">Začít</a>
     </section>
 
 </body>

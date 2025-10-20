@@ -132,7 +132,7 @@ html_sablona = """
         .unsigned-note { background-color: transparent; border: 2px solid #D32F2F; color: #D32F2F; padding: 5px 12px; border-radius: 8px; font-weight: 700; font-size: 0.9em; display: inline-block; }
         
         /* === SEKCE PRO ŽÁKA === */
-        .student-section { padding-top: 0; background-color: #FDFBF6; text-align: center; }
+        .student-section { padding-top: 0; background-color: #FDFBF6; }
         .student-card { text-align: left; background-color: white; border-left: 5px solid #0077ff; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 900px; margin-left: auto; margin-right: auto; }
         .student-card h3 { margin-top: 0; color: #002B55; font-size: 1.6em; display: flex; align-items: center; gap: 15px; }
         .student-card ul { list-style: none; padding: 0; }
@@ -164,7 +164,7 @@ html_sablona = """
         
         /* === ZÁVĚREČNÁ SEKCE === */
         .cta-section { padding: 80px 40px; text-align: center; }
-        .cta-logo { height: 60px; margin-bottom: 20px; }
+        .cta-logo { height: 100px; margin-bottom: 20px; } /* ZDE JE ZMĚNA */
         .cta-section h2 { font-family: 'K2D', sans-serif; font-weight: 800; font-size: 3em; color: #002B55; margin: 0; }
         .cta-section p { font-size: 1.3em; color: #002B55; margin-top: 5px; margin-bottom: 30px; }
         .cta-button { background-color: #00E676; color: white; padding: 15px 40px; border: none; border-radius: 12px; font-family: 'K2D', sans-serif; font-size: 1.2em; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; }

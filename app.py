@@ -164,7 +164,7 @@ html_sablona = """
         
         /* === ZÁVĚREČNÁ SEKCE === */
         .cta-section { padding: 80px 40px; text-align: center; }
-        .cta-logo { height: 100px; margin-bottom: 20px; } /* ZDE JE ZMĚNA */
+        .cta-logo { height: 100px; margin-bottom: 20px; }
         .cta-section h2 { font-family: 'K2D', sans-serif; font-weight: 800; font-size: 3em; color: #002B55; margin: 0; }
         .cta-section p { font-size: 1.3em; color: #002B55; margin-top: 5px; margin-bottom: 30px; }
         .cta-button { background-color: #00E676; color: white; padding: 15px 40px; border: none; border-radius: 12px; font-family: 'K2D', sans-serif; font-size: 1.2em; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; }
@@ -323,8 +323,7 @@ html_sablona = """
                     </div>
                 </div>
             </div>
-            <a href="#" class="cta-button" style="margin-top: 40px;">Začít</a>
-        </div>
+            </div>
     </section>
 
     <section class="cta-section">

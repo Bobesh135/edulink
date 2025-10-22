@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Nastavení rozvrhu - Edulink</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=K2D:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="register-background"></div>
+    <div class="timetable-container">
+        <h1>Nastavení rozvrhu</h1>
+        <p>Kliknutím na políčko si vyberte hodiny, které učíte, a přiřaďte jim třídu.</p>
+        
+        <div class="timetable-grid">
+            <div class="grid-header time-header"></div>
+            <div class="grid-header">1<br><span>8:00-8:45</span></div>
+            <div class="grid-header">2<br><span>8:55-9:40</span></div>
+            <div class="grid-header">3<br><span>10:00-10:45</span></div>
+            <div class="grid-header">4<br><span>10:55-11:40</span></div>
+            <div class="grid-header">5<br><span>11:50-12:35</span></div>
+            <div class="grid-header">6<br><span>12:45-13:30</span></div>
+            
+            <div class="grid-header day-header">Po</div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            
+            <div class="grid-header day-header">Út</div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+
+            <div class="grid-header day-header">St</div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            
+            <div class="grid-header day-header">Čt</div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            
+            <div class="grid-header day-header">Pá</div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+            <div class="grid-cell"><input type="text" placeholder="Třída"></div>
+        </div>
+        <button class="btn-submit" style="margin-top: 30px;">Pokračovat</button>
+    </div>
+</body>
+</html>

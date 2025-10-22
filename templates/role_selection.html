@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Výběr role - Edulink</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=K2D:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="register-background"></div>
+    <div class="role-selection-container">
+        <h1>Vyberte svou roli</h1>
+        <p>Jak budete Edulink používat?</p>
+        <div class="roles-grid">
+            <a href="/registrace/vyber-skoly" class="role-card">
+                <h2>Žák</h2>
+                <p>Prohlížení známek, úkolů a komunikace.</p>
+            </a>
+            <a href="/registrace/vyber-skoly" class="role-card">
+                <h2>Rodič</h2>
+                <p>Sledování prospěchu a docházky dítěte.</p>
+            </a>
+            <a href="/registrace/ucitel/rozvrh" class="role-card">
+                <h2>Učitel</h2>
+                <p>Zapisování známek a správa třídy.</p>
+            </a>
+            <a href="/registrace/vyber-skoly" class="role-card">
+                <h2>Ředitel</h2>
+                <p>Kompletní správa školy a personálu.</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
